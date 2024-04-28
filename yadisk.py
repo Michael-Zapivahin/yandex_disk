@@ -29,17 +29,6 @@ def get_links_yandex(link: str) -> str:
 def get_links_google(link: str) -> str:
     url = 'https://www.googleapis.com/drive/v3/files'
     links_str = ''
-    params = {
-        'public_key': link,
-    }
-    response = requests.get(url, params=params)
-    if response.status_code == 200:
-        for item in response.json()['_embedded']['items']:
-            if links_str == '':
-                links_str += item['file']
-            else:
-                links_str += item['file']
-
     return links_str
 
 
