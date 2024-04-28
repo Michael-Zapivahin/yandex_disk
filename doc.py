@@ -1,6 +1,4 @@
-import tkinter as tk
 import openpyxl
-from tkinter import filedialog
 
 
 class WorkDoc:

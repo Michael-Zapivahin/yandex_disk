@@ -27,7 +27,7 @@ def get_links_yandex(link: str) -> str:
 
 
 def get_links_google(link: str) -> str:
-    url = ''
+    url = 'https://www.googleapis.com/drive/v3/files'
     links_str = ''
     params = {
         'public_key': link,
@@ -58,7 +58,6 @@ def get_links_per_file(filepath: str):
     work_doc.set_sheet(0)
     link_columns = work_doc.find_column_with_link()
     for row in range(2, work_doc.get_row_count() + 1):
-    # for row in range(2, 3):
         for itemLink in link_columns:
             direct_links = get_photos_links(work_doc.read_sell_value(row, itemLink['source']))
             if direct_links != '':
