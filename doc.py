@@ -38,7 +38,7 @@ class WorkDoc:
         self.links_columns_numbers = []
         for colum in range(2, self.sheet.max_column+1):
             item_link = str(self.sheet.cell(2, colum).value)
-            if item_link.find("disk.yandex.ru/d/") >= 0:
+            if item_link.find("disk.yandex.ru/d/") >= 0 or item_link.find('drive.google.com/file/d/') >= 0:
                 self.links_columns_numbers.append(
                     {
                         'source': colum,
