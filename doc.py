@@ -19,7 +19,6 @@ class WorkDoc:
     def save_doc(self):
         self.wb.save(self.file_path.replace('.xlsx', '-copy.xlsx'))
 
-
     def set_sheet(self, sheet_number):
         sheet_names = self.wb.sheetnames
         self.sheet = self.wb[sheet_names[sheet_number]]
@@ -56,15 +55,5 @@ class WorkDoc:
     def read_sell_value(self, row, column):
         return self.sheet.cell(row, column).value
 
-
-
-
-
-
-my_wb = WorkDoc()
-my_wb.open_file('test.xlsx')
-my_wb.set_sheet(0)
-my_wb.find_column_with_link()
-print(my_wb.links_columns_numbers)
 
 

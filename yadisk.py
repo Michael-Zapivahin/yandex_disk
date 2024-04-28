@@ -1,17 +1,8 @@
 
 import requests
-from urllib.parse import urlencode
 import json
 
 from doc import WorkDoc
-
-# googleDriveStartPath = 'https://drive.google.com/uc?export=download&confirm=no_antivirus&id='
-# yandexPrefix = 'https://getfile.dokpub.com/yandex/get/'
-
-# # Колонка, в которую сохраняются ссылки через запятую
-# targetColumnNumber = 2
-# # Колонки со ссылками
-# linksColumnsNumbers = []
 
 
 def get_links_yandex(link: str) -> str:
@@ -76,9 +67,5 @@ def get_links_per_file(filepath: str):
     work_doc.save_doc()
 
 
-
-
-get_links_per_file('test.xlsx')
-# get_links_yandex('https://disk.yandex.ru/d/qzAhtrIYtrZoRQ')
 
 
