@@ -3,6 +3,7 @@ import requests
 import json
 
 from doc import WorkDoc
+from google_drive import Drive
 
 
 def get_links_yandex(link: str) -> str:
@@ -27,8 +28,15 @@ def get_links_yandex(link: str) -> str:
 
 
 def get_links_google(link: str) -> str:
-    url = 'https://www.googleapis.com/drive/v3/files'
+    gd = Drive()
+    gd.connect()
+    files = gd.get_list_files(link)
     links_str = ''
+    for item in files:
+        if links_str == '':
+            links_str += item['od']
+        else:
+            links_str += f"\n{item['id']}"
     return links_str
 
 
