@@ -5,6 +5,9 @@ import json
 from doc import WorkDoc
 from google_drive import Drive
 
+GD = Drive()
+GD.connect()
+
 
 def get_links_yandex(link: str) -> str:
     url = 'https://cloud-api.yandex.net/v1/disk/public/resources'
@@ -28,9 +31,7 @@ def get_links_yandex(link: str) -> str:
 
 
 def get_links_google(link: str) -> str:
-    gd = Drive()
-    gd.connect()
-    files = gd.get_list_files(link)
+    files = GD.get_list_files(link)
     links_str = ''
     for item in files:
         if links_str == '':
